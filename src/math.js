@@ -1,15 +1,15 @@
-let Util = {};
-Util.factorial = (n) => {
+const Util = {};
+Util.factorial = n => {
     if (n === 0) {
         return 1;
     }
 
     if (n >= 3000) {
-        throw 'n too large'
+        throw 'n too large';
     }
 
     if (n < 0) {
-        throw 'n is negative'
+        throw 'n is negative';
     }
 
     return n * Util.factorial(n - 1);
@@ -28,10 +28,11 @@ Util.isPrime = function (n) {
         return false;
     }
     if (n < 0) {
-        throw 'Unable to compute prime for n < 0'
+        throw 'Unable to compute prime for n < 0';
     }
-    for (var i = 2; i < n; i++)
-        if (n % i === 0) return false;
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0){return false;}
+    }
     return true;
 
 };
@@ -48,7 +49,7 @@ Util.isPrime = function (n) {
  */
 Util.sumPrime = function(n) {
     if(n < 2){
-        throw new Error("n should be equal be greater or equal to 2");
+        throw new Error('n should be equal be greater or equal to 2');
     }else {
         let sum = 0;
         for(let i = 2 ; i <= n ; i++){
@@ -73,14 +74,14 @@ Util.sumPrime = function(n) {
  * @returns {array}
  */
 Util.fizzBuzz = function(n) {
-    let array = new Array();
+    const array = [];
     for(let i = 1 ; i <= n ; i++){
         if (i % 5 === 0 && i % 3 === 0){
-            array.push("FizzBuzz");
+            array.push('FizzBuzz');
         }else if(i % 3 === 0){
-            array.push("Fizz");
+            array.push('Fizz');
         }else if(i % 5 === 0){
-            array.push("Buzz");
+            array.push('Buzz');
         } else {
             array.push(i);
         }
@@ -98,14 +99,14 @@ Util.fizzBuzz = function(n) {
  * @returns {string}
  */
 Util.cipher = function (phrase) {
-    let encodedString = "";
+    let encodedString = '';
     const a = 'a', A = 'A';
     for(let i = 0 ; i < phrase.length ; i++){
         if(phrase.charCodeAt(i) > 96 && phrase.charCodeAt(i) < 123 ||
             phrase.charCodeAt(i) < 91 && phrase.charCodeAt(i) > 64){
-            if(String.fromCharCode(phrase.charCodeAt(i)) === "z"){
+            if(String.fromCharCode(phrase.charCodeAt(i)) === 'z'){
                 encodedString += a;
-            }else if (String.fromCharCode(phrase.charCodeAt(i)) === "Z") {
+            }else if (String.fromCharCode(phrase.charCodeAt(i)) === 'Z') {
                 encodedString += A;
             }else {
                 encodedString += String.fromCharCode(phrase.charCodeAt(i)+1);

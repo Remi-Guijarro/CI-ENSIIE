@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kirouane/test-tp.git"
+    "url": "git+https://github.com/Remi-Guijarro/CI-ENSIIE.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kirouane/test-tp/issues"
+    "url": "https://github.com/Remi-Guijarro/CI-ENSIIE/issues"
   },
-  "homepage": "https://github.com/Kirouane/test-tp#readme",
+  "homepage": "https://github.com/Remi-Guijarro/CI-ENSIIE/#readme",
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
