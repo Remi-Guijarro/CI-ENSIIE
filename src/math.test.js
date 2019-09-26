@@ -1,4 +1,4 @@
-const Util = import('./math');
+const Util = require('./math');
 describe('factoriel',() => {
     test('Test factoriel de 0 => 1', () => {
         expect(Util.factorial(0)).toBe(1);
