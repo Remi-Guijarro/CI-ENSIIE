@@ -4,11 +4,23 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "test": "test"
+    "test": "jest",
+    "test-coverage": "npx jest --coverage"
   },
   "scripts": {
     "test": "jest",
-    "test-coverage": "npx jest --coverage"
+    "test.coverage" : "jest --coverage"
+  },
+  "jest": {
+    "verbose": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 70,
+        "statements": 0
+      }
+    }
   },
   "repository": {
     "type": "git",
