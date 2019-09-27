@@ -21,9 +21,7 @@
   },
   "homepage": "https://github.com/Remi-Guijarro/CI-ENSIIE/#readme",
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "babel-jest": "^24.9.0",
     "jest": "^24.9.0"
-  }
+  },
+  "dependencies": {}
 }

@@ -106,4 +106,4 @@ class Interval {
     };
 }
 
-module.exports = Interval;
+module.exports.Interval = Interval;
