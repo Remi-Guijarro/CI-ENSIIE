@@ -6,6 +6,6 @@ module.exports = function(config) {
     testRunner: "jest",
     transpilers: [],
     coverageAnalysis: "off",
-    thresholds: {high: 80,low: 60,break:40}
+    thresholds: {high: 80,low: 100,break:40}
   });
 };
