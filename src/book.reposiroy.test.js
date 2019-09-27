@@ -22,8 +22,5 @@ describe('Book repository getTotalCount', function () {
         };
         const repository = new BookRepository(dbMock);
         expect(repository.getTotalCount()).toBe(12);
-        expect(dbMock.get.mock.calls.length).toBe(1);
-        expect(dbMock.size.mock.calls.length).toBe(1);
-        expect(dbMock.value.mock.calls.length).toBe(1);
     });
 });
