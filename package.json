@@ -35,5 +35,7 @@
     "@stryker-mutator/jest-runner": "^2.1.0",
     "jest": "^24.9.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lowdb": "^1.0.0"
+  }
 }
