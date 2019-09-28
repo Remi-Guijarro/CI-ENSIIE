@@ -1,9 +1,17 @@
 class BookValidator {
     isBook(book){
-        return undefined !== book && this.isArgumentDefined(book.id) &&
-            this.isArgumentDefined(book.name) &&
-            this.isArgumentDefined(book.price) &&
-            this.isArgumentDefined(book.added_at);
+        return  this.isObjectNullOrUndefined(book) &&  this.isArgumentsDefined(book);
+    }
+
+    isArgumentsDefined(book){
+        return this.isArgumentDefined(book.id) &&
+        this.isArgumentDefined(book.name) &&
+        this.isArgumentDefined(book.price) &&
+        this.isArgumentDefined(book.added_at);
+    }
+
+    isObjectNullOrUndefined(object){
+        return (undefined !== object && null !== object);
     }
 
     isArgumentDefined(argument){
