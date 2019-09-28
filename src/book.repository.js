@@ -1,5 +1,6 @@
-class BookRepository {
+const BookValidator = require('./BookValidator');
 
+class BookRepository {
     /**
      * @param db
      */
@@ -8,7 +9,8 @@ class BookRepository {
     }
 
     save(book) {
-        if(undefined === book || null  === book){
+        const validator = new BookValidator();
+        if(!validator.isBook(book)){
             throw new Error('book shouldn\'t');
         }else {
             this.db.get('books').push(book).write();
