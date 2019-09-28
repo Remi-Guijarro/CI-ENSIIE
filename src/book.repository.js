@@ -11,7 +11,7 @@ class BookRepository {
     save(book) {
         const validator = new BookValidator();
         if(!validator.isBook(book)){
-            throw new Error('book shouldn\'t');
+            throw new Error('The given object is not a book');
         }else {
             this.db.get('books').push(book).write();
         }

@@ -8,8 +8,19 @@ describe('Book repository Save', function () {
             write : jest.fn().mockReturnThis()
         };
         const repository = new BookRepository(dbMock);
-        repository.save({id: 1, name: "Unit test"});
+        repository.save({id: 1, name: 'Unit test',price:5.10,added_at:'2019-02-02'});
         expect(dbMock.write.mock.calls.length).toBe(1);
+    });
+
+
+    test('Save an object which is not a book should throw an error', () => {
+        const dbMock = {
+            get : jest.fn().mockReturnThis(),
+            push : jest.fn().mockReturnThis(),
+            write : jest.fn().mockReturnThis()
+        };
+        const repository = new BookRepository(dbMock);
+        expect(() =>{repository.save({id: 1, name: 'Unit test'});}).toThrowError();
     });
 });
 
