@@ -7,8 +7,12 @@ class BookRepository {
         this.db = db;
     }
 
-    save (book) {
-        this.db.get('books').push(book).write();
+    save(book) {
+        if(undefined === book || null  === book){
+            throw new Error('book shouldn\'t');
+        }else {
+            this.db.get('books').push(book).write();
+        }
     }
 
     /**
