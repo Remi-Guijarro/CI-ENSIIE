@@ -15,14 +15,6 @@ class BookRepository {
         }
     }
 
-
-    isBoook(book){
-        if(book.id === undefined || book.id === null || book.){
-            return true;
-        }else {
-            return false;
-        }
-    }
     /**
      * Nombre total de livre
      */
