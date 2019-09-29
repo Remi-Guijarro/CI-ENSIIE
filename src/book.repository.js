@@ -67,7 +67,7 @@ class BookRepository {
      *      ....
      *  ]
      */
-    getCountBookAddedByMont(bookName) {
+    getCountBookAddedByMonth() {
 
     }
 
