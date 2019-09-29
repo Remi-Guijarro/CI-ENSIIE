@@ -40,7 +40,12 @@ class BookRepository {
      * Retourne un livre
      */
     getBookByName(bookName) {
-
+        const requestedBook = this.db.get('books').value().filter(book => book.name === bookName)[0];
+        if(requestedBook !== undefined ){
+            return requestedBook;
+        }else {
+            return null;
+        }
     }
 
     /**

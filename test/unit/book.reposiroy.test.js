@@ -37,7 +37,7 @@ describe('Book repository getTotalCount',  () => {
 });
 
 describe('Book repository getTotalPrice', () => {
-    test('Get total books count ',() => {
+    test('Get total books total price ',() => {
         const dbMock = {
             get: jest.fn().mockReturnThis(),
             map: jest.fn().mockReturnThis(),
@@ -45,5 +45,59 @@ describe('Book repository getTotalPrice', () => {
         };
         const repository = new BookRepository(dbMock);
         expect(repository.getTotalPrice()).toBe(36);
+    });
+});
+
+describe('Book repository getBookByName', () => {
+    test('Get book by name ',() => {
+        const requestedBookTitle = 'Le petit prince';
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue([
+                {
+                    'id': 1,
+                    'name': 'test',
+                    'price': 6.1,
+                    'added_at': '2019-02-01'
+                },
+                {
+                    'id': 2,
+                    'name': requestedBookTitle,
+                    'price': 4.1,
+                    'added_at': '2019-03-01'
+                }
+            ])
+        };
+        const repository = new BookRepository(dbMock);
+        const requestedBook = {
+            'id': 2,
+            'name': requestedBookTitle,
+            'price': 4.1,
+            'added_at': '2019-03-01'
+        };
+        expect(repository.getBookByName(requestedBookTitle)).toEqual(requestedBook);
+    });
+
+    test('Get book by name should return null if none of books corresponds to the given name ',() => {
+        const requestedBookTitle = 'Le petit prince';
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue([
+                {
+                    'id': 1,
+                    'name': 'test',
+                    'price': 6.1,
+                    'added_at': '2019-02-01'
+                },
+                {
+                    'id': 2,
+                    'name': 'Un livre random',
+                    'price': 4.1,
+                    'added_at': '2019-03-01'
+                }
+            ])
+        };
+        const repository = new BookRepository(dbMock);
+        expect(repository.getBookByName(requestedBookTitle)).toEqual(null);
     });
 });
