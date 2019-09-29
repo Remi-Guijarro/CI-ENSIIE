@@ -24,7 +24,7 @@ describe('Book repository Save', function () {
     });
 });
 
-describe('Book repository getTotalCount', function () {
+describe('Book repository getTotalCount',  () => {
     test('Get total books count ',() => {
         const dbMock = {
             get: jest.fn().mockReturnThis(),
@@ -33,5 +33,17 @@ describe('Book repository getTotalCount', function () {
         };
         const repository = new BookRepository(dbMock);
         expect(repository.getTotalCount()).toBe(12);
+    });
+});
+
+describe('Book repository getTotalPrice', () => {
+    test('Get total books count ',() => {
+        const dbMock = {
+            get: jest.fn().mockReturnThis(),
+            map: jest.fn().mockReturnThis(),
+            value: jest.fn().mockReturnValue([10,10,5.0,1,10])
+        };
+        const repository = new BookRepository(dbMock);
+        expect(repository.getTotalPrice()).toBe(36);
     });
 });
