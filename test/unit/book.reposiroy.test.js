@@ -101,3 +101,7 @@ describe('Book repository getBookByName', () => {
         expect(repository.getBookByName(requestedBookTitle)).toEqual(null);
     });
 });
+
+describe('getCountBookAddedByMonth tests', () => {
+    test()
+});
