@@ -15,3 +15,20 @@ describe('Overlaping method test',() => {
         expect(interval.overlaps(new Interval(5,10))).toBeFalsy();
     });
 });
+
+describe('Interval includes ', () => {
+    test('interval includes should return false', () => {
+        const interval = new Interval(5,10);
+        expect(interval.includes(new Interval(2,4))).toBeFalsy();
+    });
+
+    test('interval includes should return true ', () => {
+        const interval = new Interval(5,10);
+        expect(interval.includes(new Interval(5,8))).toBeTruthy();
+    });
+
+    test('interval includes should return true when interval is the same', () => {
+        const interval = new Interval(5,10);
+        expect(interval.includes(new Interval(5,10))).toBeTruthy();
+    });
+});
