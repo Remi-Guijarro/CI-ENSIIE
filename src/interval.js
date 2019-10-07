@@ -68,9 +68,8 @@ class Interval {
             const min = this.start < interval.start ? this.start : interval.start;
             const max = this.end > interval.end ? this.end : interval.end;
             return [new Interval(min,max)];
-        }else {
-            return interval.end >= this.end && interval.start >= this.start ? [this,interval] : [interval,this];
         }
+        return interval.end >= this.end && interval.start >= this.start ? [this,interval] : [interval,this];
     };
 
     /**
