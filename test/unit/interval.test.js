@@ -77,4 +77,10 @@ describe('intersection tests', function () {
         const intervalResult = new Interval(5,10);
         expect(interval.intersection(new Interval(4,12))).toEqual(intervalResult);
     });
+
+    test('test same interval intersection',() => {
+        const interval = new Interval(5,10);
+        const intervalResult = new Interval(5,10);
+        expect(interval.intersection(new Interval(5,10))).toEqual(intervalResult);
+    });
 });
