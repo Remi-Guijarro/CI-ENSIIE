@@ -51,3 +51,10 @@ describe('Interval union tests', function () {
         expect(interval.union(comparedInterval)).toEqual([interval,comparedInterval]);
     });
 });
+
+describe('toString test', () => {
+    test('toString should return a string representation of the interval [start,end]',() => {
+        const interval = new Interval(10,20);
+        expect(interval.toString()).toEqual("[10,20]");
+    });
+});
