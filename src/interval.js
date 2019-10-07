@@ -65,9 +65,7 @@ class Interval {
      */
     union(interval) {
         if(this.overlaps(interval)){
-            const min = this.start < interval.start ? this.start : interval.start;
-            const max = this.end > interval.end ? this.end : interval.end;
-            return [new Interval(min,max)];
+            return [new Interval(Math.min(this.start,interval.start),Math.max(this.end,interval.end))];
         }
         return interval.end >= this.end && interval.start >= this.start ? [this,interval] : [interval,this];
     };

@@ -39,6 +39,12 @@ describe('Interval union tests', function () {
         expect(interval.union(new Interval(8,15))).toEqual([new Interval(5,15)]);
     });
 
+    test('test union with same interval should return same interval',() => {
+        const interval = new Interval(5,10);
+        const comparedInterval = new Interval(5,10);
+        expect(interval.union(comparedInterval)).toEqual([interval]);
+    });
+
     test('test union non overlapping intervals',() => {
         const interval = new Interval(5,10);
         const comparedInterval = new Interval(12,15);
