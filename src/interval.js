@@ -87,7 +87,10 @@ class Interval {
      * @returns {Interval|null}
      */
     intersection(interval) {
-
+        if(!this.overlaps(interval)){
+            return null;
+        }
+        return new Interval(Math.max(interval.start,this.start),Math.min(interval.end,this.end));
     };
 
     /**
