@@ -58,3 +58,34 @@ describe('toString test', () => {
         expect(interval.toString()).toEqual("[10,20]");
     });
 });
+
+describe('intersection tests', function () {
+    test('test right intersection',() => {
+        const interval = new Interval(5,10);
+        const intervalResult = new Interval(8,10);
+        expect(interval.intersection(new Interval(8,15))).toEqual(intervalResult);
+    });
+
+    test('test left intersection',() => {
+        const interval = new Interval(5,10);
+        const intervalResult = new Interval(5,8);
+        expect(interval.intersection(new Interval(4,8))).toEqual(intervalResult);
+    });
+
+    test('test middle intersection',() => {
+        const interval = new Interval(5,10);
+        const intervalResult = new Interval(5,10);
+        expect(interval.intersection(new Interval(4,12))).toEqual(intervalResult);
+    });
+
+    test('test same interval intersection',() => {
+        const interval = new Interval(5,10);
+        const intervalResult = new Interval(5,10);
+        expect(interval.intersection(new Interval(5,10))).toEqual(intervalResult);
+    });
+
+    test('test no intersection should return null',() => {
+        const interval = new Interval(5,10);
+        expect(interval.intersection(new Interval(12,20))).toBeNull();
+    });
+});
