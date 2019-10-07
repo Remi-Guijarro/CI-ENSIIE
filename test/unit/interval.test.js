@@ -65,4 +65,10 @@ describe('intersection tests', function () {
         const intervalResult = new Interval(8,10);
         expect(interval.intersection(new Interval(8,15))).toEqual(intervalResult);
     });
+
+    test('test left intersection',() => {
+        const interval = new Interval(5,10);
+        const intervalResult = new Interval(5,8);
+        expect(interval.intersection(new Interval(4,8))).toEqual(intervalResult);
+    });
 });
