@@ -83,4 +83,9 @@ describe('intersection tests', function () {
         const intervalResult = new Interval(5,10);
         expect(interval.intersection(new Interval(5,10))).toEqual(intervalResult);
     });
+
+    test('test no intersection should return null',() => {
+        const interval = new Interval(5,10);
+        expect(interval.intersection(new Interval(12,20))).toBeNull();
+    });
 });
