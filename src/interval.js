@@ -52,6 +52,8 @@ class Interval {
      *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
      *      interval2 =                                              ▓▓▓▓▓▓▓▓▓▓▓▓▓
      *      interval1.union(interval2) =>        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+     *  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+     *   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
      *
      * Exemple 2 :
      *      interval1 =                          ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
@@ -62,7 +64,13 @@ class Interval {
      * @returns {Interval[]}
      */
     union(interval) {
-
+        if(this.overlaps(interval)){
+            const min = this.start < interval.start ? this.start : interval.start;
+            const max = this.end > interval.end ? this.end : interval.end;
+            return [new Interval(min,max)];
+        }else {
+            return interval.end >= this.end && interval.start >= this.start ? [this,interval] : [interval,this];
+        }
     };
 
     /**
