@@ -89,3 +89,40 @@ describe('intersection tests', function () {
         expect(interval.intersection(new Interval(12,20))).toBeNull();
     });
 });
+
+describe('test exclusion',  () => {
+    test('test right exclusion',() => {
+        const interval = new Interval(5,10);
+        const comparedInterval = new Interval(8,15);
+        const result = [new Interval(5,8),new Interval(10,15)];
+        expect(interval.exclusion(comparedInterval)).toEqual(result);
+    });
+
+    test('test left exclusion',() => {
+        const interval = new Interval(8,15);
+        const comparedInterval = new Interval(5,10);
+        const result = [new Interval(5,8),new Interval(10,15)];
+        expect(interval.exclusion(comparedInterval)).toEqual(result);
+    });
+
+    test('test middle exclusion',() => {
+        const interval = new Interval(5,15);
+        const comparedInterval = new Interval(8,10);
+        const result = [new Interval(5,8),new Interval(10,15)];
+        expect(interval.exclusion(comparedInterval)).toEqual(result);
+    });
+
+    test('test same interval exclusion',() => {
+        const interval = new Interval(5,10);
+        const comparedInterval = new Interval(5,10);
+        const result = [];
+        expect(interval.exclusion(comparedInterval)).toEqual(result);
+    });
+
+    test('test exclusion with interval that have no intersections ',() => {
+        const interval = new Interval(5,10);
+        const comparedInterval = new Interval(15,20);
+        const result = [new Interval(5,10),new Interval(15,20)];
+        expect(interval.exclusion(comparedInterval)).toEqual(result);
+    });
+});
