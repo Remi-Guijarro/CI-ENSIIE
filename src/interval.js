@@ -110,7 +110,12 @@ class Interval {
      * @returns {Interval[]}
      */
     exclusion(interval) {
-
+        const points = [this.start,this.end,interval.start,interval.end];
+        if(points[0] - points[2] === 0 && points[1] - points[3] === 0){
+            return [];
+        }
+        points.sort((a, b) => a - b);
+        return [new Interval(points[0],points[1]),new Interval(points[2],points[3])];
     };
 }
 
